@@ -1,0 +1,63 @@
+export default {
+  translation: {
+    validation: {
+      required: 'Обязательное поле',
+      loginFailed: 'Неверные имя пользователя или пароль',
+      length: 'От 3 до 20 символов',
+      unique: 'Должно быть уникальным',
+      MustMatch: 'Пароли должны совпадать',
+      passwordLength: 'Не менее 6 символов',
+      409: 'Такой пользователь уже существует',
+      usernameLength: 'Короткое имя пользователя',
+    },
+    errors: {
+      network: 'Ошибка соединения',
+    },
+    inputPage: {
+      join: 'Войти',
+      nickname: 'Ваш ник',
+      password: 'Пароль',
+      text: 'Нет аккаунта? ',
+      link: 'Регистрация',
+    },
+    messages: {
+      messageCount_one: '{{count}} сообщение',
+      messageCount_few: '{{count}} сообщения',
+      messageCount_many: '{{count}} сообщений',
+      enterMessage: 'Bведите сообщение...',
+      newMessage: 'Новое сообщение',
+    },
+    channelManagement: 'Управление каналом',
+    channel: 'Каналы',
+    modals: {
+      channelRename: 'Канал переименован',
+      removeChannel: 'Канал удалён',
+      channelAdd: 'Канал создан',
+      deleteChannel: 'Удалить какнал',
+      head: 'Заголовок',
+      cancel: 'отменить',
+      send: 'отправить',
+      delete: 'Удалить',
+      rename: 'Переименовать',
+      sure: 'Уверены?',
+      renameChannel: 'Переименовать канал',
+      name: 'Имя канала',
+    },
+    signup: {
+      sign: 'Зарегистрироваться',
+      nickname: 'Имя пользователя',
+      password: 'Пароль',
+      confPass: 'Подтвердите пароль',
+      reg: 'Регистрация',
+    },
+    nav: {
+      chat: 'Hexlet Chat',
+      button: 'Выйти',
+    },
+    errorPage: {
+      notFound: 'Страница не найдена',
+      mainPage: 'на главную страницу',
+      goIn: 'Но вы можете перейти',
+    },
+  },
+};
