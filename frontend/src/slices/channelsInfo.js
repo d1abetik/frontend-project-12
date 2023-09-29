@@ -6,12 +6,13 @@ import {
   miniSerializeError,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
+import routes from '../routes';
 
 const fetchData = createAsyncThunk(
   'channelInfo/setInitialState',
   async (auth, { rejected }) => {
     try {
-      const response = await axios.get('/api/v1/data', { headers: auth });
+      const response = await axios.get(routes.dataPath(), { headers: auth });
       return response.data;
     } catch (error) {
       if (error.response) {

@@ -7,6 +7,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import routes from '../routes.js';
 import Auth from './Auth/Auth.jsx';
 import useAuth from './Auth/hookAuth.js';
 import Chat from './ChatPage/Chat.jsx';
@@ -31,11 +32,11 @@ const App = () => (
           <div className="d-flex flex-column h-100">
             <Header />
             <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
+              <Route path={routes.login()} element={<Login />} />
+              <Route path={routes.signup()} element={<SignUp />} />
               <Route path="*" element={<ErrorPage />} />
               <Route
-                path="/"
+                path={routes.chat()}
                 element={(
                   <PrivateRoute>
                     <Chat />

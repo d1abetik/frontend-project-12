@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
+import routes from '../../routes.js';
 import useAuth from '../Auth/hookAuth.js';
 
 const SignUpForm = () => {
@@ -23,12 +24,12 @@ const SignUpForm = () => {
       onSubmit={(values, actions) => {
         const { username, password } = values;
 
-        axios.post('/api/v1/signup', { username: filter.clean(username), password })
+        axios.post(routes.signPath(), { username: filter.clean(username), password })
           .then((response) => {
             setAuthError(false);
             actions.setSubmitting(true);
             auth.logIn(response.data);
-            navigate('/');
+            navigate(routes.chat());
           })
           .catch((error) => {
             actions.setSubmitting(false);
