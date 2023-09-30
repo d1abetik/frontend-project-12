@@ -64,15 +64,15 @@ const SignUpForm = () => {
       }) => (
         <Form className="w-50" onSubmit={handleSubmit}>
           <h1 className="text-center mb-4">{t('signup.reg')}</h1>
-          <FloatingLabel className="mb-3" controlId="floatingUsername" label="Никнейм">
+          <FloatingLabel className="mb-3" controlId="floatingUsername" label={t('signup.nickname')}>
             <Form.Control value={values.username} type="text" autoFocus onBlur={handleBlur} onChange={handleChange} required placeholder={t('signup.nickname')} ref={ref} name="username" isInvalid={(touched.username && errors.username) || authError} />
             <Form.Control.Feedback type="invalid" tooltip>{errors.username && t(`${errors.username}`)}</Form.Control.Feedback>
           </FloatingLabel>
-          <FloatingLabel className="mb-3" controlId="floatingPassword" label="Пароль">
+          <FloatingLabel className="mb-3" controlId="floatingPassword" label={t('signup.password')}>
             <Form.Control value={values.password} onBlur={handleBlur} type="password" onChange={handleChange} required placeholder={t('signup.password')} name="password" isInvalid={(touched.password && errors.password) || authError} />
             <Form.Control.Feedback type="invalid" tooltip>{errors.password && t(`${errors.password}`)}</Form.Control.Feedback>
           </FloatingLabel>
-          <FloatingLabel className="mb-4" controlId="floatingconfirmPassword" label="Подтверждение пароля">
+          <FloatingLabel className="mb-4" controlId="floatingconfirmPassword" label={t('signup.confPass')}>
             <Form.Control value={values.confirmPassword} type="password" onChange={handleChange} required placeholder={t('signup.confPass')} name="confirmPassword" isInvalid={(touched.confirmPassword && errors.confirmPassword) || authError === true} />
             <Form.Control.Feedback type="invalid" tooltip>
               {errors.confirmPassword && t(`${errors.confirmPassword}`)}

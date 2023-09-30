@@ -62,10 +62,10 @@ const InputFormLogin = () => {
         <Form className="col-12 col-md-6 mt-3 mt-mb-0" onSubmit={handleSubmit}>
           <h1 className="text-center mb-4">{t('inputPage.join')}</h1>
           <>
-            <FloatingLabel className="mb-3" controlId="floatingName" label="Никнейм">
+            <FloatingLabel className="mb-3" controlId="floatingName" label={t('inputPage.nickname')}>
               <Form.Control value={values.username} type="text" autoFocus onChange={handleChange} required placeholder={t('inputPage.nickname')} ref={ref} name="username" isInvalid={touched.name && authError} />
             </FloatingLabel>
-            <FloatingLabel className="mb-4" controlId="floatingPassword" label="Пароль">
+            <FloatingLabel className="mb-4" controlId="floatingPassword" label={t('inputPage.password')}>
               <Form.Control value={values.password} type="password" onChange={handleChange} required placeholder={t('inputPage.password')} name="password" isInvalid={touched.password && authError} />
               <Form.Control.Feedback type="invalid" tooltip>{errors && t('validation.loginFailed')}</Form.Control.Feedback>
             </FloatingLabel>
