@@ -42,7 +42,7 @@ const SignUpForm = () => {
           });
       }}
       validationSchema={yup.object().shape({
-        username: yup.string().min(3, 'validation.usernameLength').required('validation.length').max(20),
+        username: yup.string().min(3, 'validation.length').required('validation.required').max(20),
         password: yup.string().min(6, 'validation.passwordLength').required('validation.required'),
         confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'validation.MustMatch').required('validation.required'),
       })}
