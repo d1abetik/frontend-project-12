@@ -1,4 +1,4 @@
-/*eslint no-param-reassign: "error"*/
+/* eslint no-param-reassign: "error" */
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
