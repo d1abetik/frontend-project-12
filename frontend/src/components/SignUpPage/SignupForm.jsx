@@ -79,7 +79,7 @@ const SignUpForm = () => {
               {t('validation.409')}
             </Form.Control.Feedback>
           </FloatingLabel>
-          <button className="w-100 mb-3 btn btn-outline-primary" type="submit" disabled={!isValid ?? isSubmitting} onSubmit={handleSubmit}>{t('signup.sign')}</button>
+          <button className="w-100 mb-3 btn btn-outline-primary" type="submit" disabled={isValid && isSubmitting} onSubmit={handleSubmit}>{t('signup.sign')}</button>
         </Form>
       )}
     </Formik>
