@@ -19,7 +19,7 @@ const ListChannels = () => {
     channelRef.current[currentChannelId].scrollIntoView();
   }, [channels, currentChannelId]);
   return (
-    <ul>
+    <ul id="channels-box" className="nav flex-column nav-pills nav-fill px-2 mb-3 overflow-auto h-100 d-block">
       {channels.map((channel) => (
         !channel.removable ? (
           <li ref={(el) => { channelRef.current[channel.id] = el; }} key={channel.id} className="nav-item w-100">

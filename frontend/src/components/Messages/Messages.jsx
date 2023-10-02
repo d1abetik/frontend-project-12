@@ -36,7 +36,7 @@ const Massages = () => {
           {messagesChannel.length !== 0 ? messagesChannel.map((message) => (
             <div className="flx" key={message.id} ref={(el) => { ref.current[message?.id] = el; }}>
               <div className={`${message.userName === user.username ? 'text-break mb-2 bg-bl border-radius flx-end' : 'text-break mb-2 border-radius bg-gr'}`}>
-                <b>{message.userName}</b>
+                <b className={`${message.userName === user.username ? 'bg-white' : 'text-primary'}`}>{message.userName}</b>
                 {`: ${message.body}`}
               </div>
             </div>

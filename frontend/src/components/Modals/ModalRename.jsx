@@ -20,7 +20,8 @@ const schema = (channels) => Yup.object().shape({
     .required('validation.required')
     .min(3, 'validation.length')
     .max(20, 'validation.length')
-    .notOneOf(channels, 'validation.unique'),
+    .notOneOf(channels, 'validation.unique')
+    .trim(),
 });
 
 const RenameModal = ({ handleClose }) => {

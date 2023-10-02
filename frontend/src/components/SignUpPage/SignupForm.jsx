@@ -24,7 +24,7 @@ const SignUpForm = () => {
       onSubmit={(values, actions) => {
         const { username, password } = values;
 
-        axios.post(routes.signPath(), { username: filter.clean(username), password })
+        axios.post(routes.signPath(), { username: filter.clean(username.trim()), password })
           .then((response) => {
             setAuthError(false);
             actions.setSubmitting(true);
@@ -42,9 +42,16 @@ const SignUpForm = () => {
           });
       }}
       validationSchema={yup.object().shape({
-        username: yup.string().min(3, 'validation.length').required('validation.required').max(20),
-        password: yup.string().min(6, 'validation.passwordLength').required('validation.required'),
-        confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'validation.MustMatch').required('validation.required'),
+        username: yup.string()
+          .min(3, 'validation.length')
+          .required('validation.required')
+          .max(20),
+        password: yup.string()
+          .min(6, 'validation.passwordLength')
+          .required('validation.required'),
+        confirmPassword: yup.string()
+          .oneOf([yup.ref('password'), null], 'validation.MustMatch')
+          .required('validation.required'),
       })}
       initialValues={{
         username: '',
