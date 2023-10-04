@@ -53,7 +53,6 @@ const RenameModal = ({ handleClose }) => {
               id: currentChannel.id,
             };
             const data = await api.renameChannel(renameChannel);
-            console.log(data)
             dispatch(actions.selectChannel(data));
             toast.success(t('modals.channelRename'));
             handleClose();

@@ -17,7 +17,6 @@ const Massages = () => {
   const currentChannelId = useSelector((state) => state.channelSlice.currentChannelId);
   const currentChannel = channels.filter(({ id }) => id === currentChannelId)
     .map(({ name }) => name);
-  console.log(currentChannel)
   const messagesChannel = messages.filter((message) => message.channelId === currentChannelId);
   const endMessage = messagesChannel[messagesChannel.length - 1];
   const endMessId = endMessage?.id;
