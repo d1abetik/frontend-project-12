@@ -58,7 +58,7 @@ const init = async () => {
   });
 
   const rollbarConfig = {
-    accessToken: 'b164f53efeb94d159e34209b40ff9003',
+    accessToken: process.env.REACT_APP_SECRET_CODE,
     payload: {
       environment: 'production',
     },

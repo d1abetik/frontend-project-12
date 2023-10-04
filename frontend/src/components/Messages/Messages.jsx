@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { selectors as channelsSelectors } from '../../slices/channelsInfo.js';
-import { selectors as messageSelectors } from '../../slices/messagesSlice.js';
+import { selectors as messagesSelectors } from '../../slices/messagesSlice.js';
 import useAuth from '../Auth/hookAuth.js';
 import MessagesForm from './MessagesForm.jsx';
 
@@ -11,20 +11,23 @@ const Massages = () => {
   const ref = useRef({});
   const { t } = useTranslation();
   const { user } = useAuth();
-  const messages = useSelector(messageSelectors.selectAll);
+
+  const messages = useSelector(messagesSelectors.selectAll);
   const channels = useSelector(channelsSelectors.selectAll);
   const currentChannelId = useSelector((state) => state.channelSlice.currentChannelId);
   const currentChannel = channels.filter(({ id }) => id === currentChannelId)
     .map(({ name }) => name);
+  console.log(currentChannel)
   const messagesChannel = messages.filter((message) => message.channelId === currentChannelId);
   const endMessage = messagesChannel[messagesChannel.length - 1];
-  const endMessageID = endMessage?.id;
+  const endMessId = endMessage?.id;
+
   useEffect(() => {
-    if (ref.current[endMessageID] === undefined) {
-      return;
+    if (ref.current[endMessId] !== undefined) {
+      ref.current[endMessId].scrollIntoView();
     }
-    ref.current[endMessageID].scrollIntoView();
-  }, [messagesChannel, endMessageID, endMessage]);
+  }, [messagesChannel, endMessId, endMessage]);
+
   return (
     <Col className="p-0 h-100">
       <div className="d-flex flex-column h-100">
@@ -35,8 +38,8 @@ const Massages = () => {
         <div id="messages-box" className="chat-messages overflow-auto px-5">
           {messagesChannel.length !== 0 ? messagesChannel.map((message) => (
             <div className="flx" key={message.id} ref={(el) => { ref.current[message?.id] = el; }}>
-              <div className={`${message.userName === user.username ? 'text-break mb-2 bg-bl border-radius flx-end' : 'text-break mb-2 border-radius bg-gr'}`}>
-                <b className={`${message.userName === user.username ? 'bg-white' : 'text-primary'}`}>{message.userName}</b>
+              <div className={`${message.userName === user.username ? 'text-break mb-2 user-message' : 'text-break mb-2 message'}`}>
+                <b>{message.userName}</b>
                 {`: ${message.body}`}
               </div>
             </div>

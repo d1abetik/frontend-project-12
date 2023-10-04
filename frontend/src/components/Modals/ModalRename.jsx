@@ -53,6 +53,7 @@ const RenameModal = ({ handleClose }) => {
               id: currentChannel.id,
             };
             const data = await api.renameChannel(renameChannel);
+            console.log(data)
             dispatch(actions.selectChannel(data));
             toast.success(t('modals.channelRename'));
             handleClose();
@@ -83,14 +84,14 @@ const RenameModal = ({ handleClose }) => {
                   disabled={isSubmitting}
                   onChange={handleChange}
                   value={values.name}
-                  isInvalid={errors.name ?? touched.name}
+                  isInvalid={errors.name && touched.name}
                   ref={inputRef}
                   id="name"
                   autoComplete="off"
                 />
                 <Form.Label text="Имя канала" className="visually-hidden" htmlFor="name">{t('modals.name')}</Form.Label>
                 <Form.Control.Feedback type="invalid">
-                  {errors.name}
+                  {errors.name && t(`${errors.name}`)}
                 </Form.Control.Feedback>
               </Form.Group>
             </Modal.Body>

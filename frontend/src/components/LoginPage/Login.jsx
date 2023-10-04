@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import loginava from '../../assets/loginava.jpg';
+import routes from '../../routes.js';
 import InputFormLogin from './InputForm.jsx';
 
 const LoginPage = () => {
@@ -15,13 +16,13 @@ const LoginPage = () => {
         <Col xs={12} md={8} xxl={6}>
           <Card className="shadow-sm">
             <Card.Body className="row p-5">
-              <Col xs={12} md={6} className="d-flex align-items-center justify-content-center"><img src={loginava} alt="login" className="rounded-circle" /></Col>
+              <Col xs={12} md={6} className="d-flex align-items-center justify-content-center"><img src={loginava} alt={t('login')} className="rounded-circle" /></Col>
               <InputFormLogin />
             </Card.Body>
             <Card.Footer className="p-4">
               <div className="text-center">
                 <span>{t('inputPage.text')}</span>
-                <a href="/signup">{t('inputPage.link')}</a>
+                <a href={routes.signup()}>{t('inputPage.link')}</a>
               </div>
             </Card.Footer>
           </Card>

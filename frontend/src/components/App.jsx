@@ -10,11 +10,11 @@ import { ToastContainer } from 'react-toastify';
 import routes from '../routes.js';
 import Auth from './Auth/Auth.jsx';
 import useAuth from './Auth/hookAuth.js';
-import Chat from './ChatPage/Chat.jsx';
 import ErrorPage from './ErrorPage.jsx';
 import Header from './Header.jsx';
-import Login from './LoginPage/Login.jsx';
-import SignUp from './SignUpPage/Signup.jsx';
+import Chat from './routes/Chat.jsx';
+import Login from './routes/Login.jsx';
+import Signup from './routes/Signup.jsx';
 
 const PrivateRoute = ({ children }) => {
   const authDat = useAuth();
@@ -33,7 +33,7 @@ const App = () => (
             <Header />
             <Routes>
               <Route path={routes.login()} element={<Login />} />
-              <Route path={routes.signup()} element={<SignUp />} />
+              <Route path={routes.signup()} element={<Signup />} />
               <Route path="*" element={<ErrorPage />} />
               <Route
                 path={routes.chat()}

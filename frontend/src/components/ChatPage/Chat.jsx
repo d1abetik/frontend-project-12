@@ -5,7 +5,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../slices/store.js';
 import useAuth from '../Auth/hookAuth.js';
-import Massages from '../Messages/Messages.jsx';
+import Messages from '../Messages/Messages.jsx';
 import Modals from '../Modals/Modals.jsx';
 import Channel from './ChatChannel.jsx';
 
@@ -32,7 +32,7 @@ const Chat = () => {
     <Container className="h-100 my-4 overflow-hidden rounded shadow">
       <Row className="h-100 bg-white flex-md-row">
         <Channel />
-        <Massages />
+        <Messages />
         <Modals />
       </Row>
     </Container>

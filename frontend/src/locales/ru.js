@@ -13,6 +13,8 @@ export default {
     errors: {
       network: 'Ошибка соединения',
     },
+    login: 'Логин',
+    signupname: 'Регистрация',
     inputPage: {
       join: 'Войти',
       nickname: 'Ваш ник',
@@ -20,6 +22,8 @@ export default {
       text: 'Нет аккаунта? ',
       link: 'Регистрация',
     },
+    enterMsg: 'Ввести сообщение',
+    newMsg: 'Новое сообщение',
     messages: {
       messageCount_one: '{{count}} сообщение',
       messageCount_few: '{{count}} сообщения',
