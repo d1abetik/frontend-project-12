@@ -28,7 +28,6 @@ const RenameModal = ({ handleClose }) => {
   const dispatch = useDispatch();
   const { api } = useApi();
   const inputRef = useRef();
-  console.log(api);
   const { t } = useTranslation();
   const { logOut } = useAuth();
   useEffect(() => {
