@@ -28,6 +28,7 @@ const RenameModal = ({ handleClose }) => {
   const dispatch = useDispatch();
   const { api } = useApi();
   const inputRef = useRef();
+  console.log(api);
   const { t } = useTranslation();
   const { logOut } = useAuth();
   useEffect(() => {
@@ -48,12 +49,12 @@ const RenameModal = ({ handleClose }) => {
           try {
             action.setSubmitting(true);
             const { name } = value;
-            const renameChannel = {
+            const renChannel = {
               name: filter.clean(name),
               id: currentChannel.id,
             };
-            const data = await api.renameChannel(renameChannel);
-            dispatch(actions.selectChannel(data));
+            await api.renameChannel(renChannel);
+            dispatch(actions.selectChannel(currentChannel.id));
             toast.success(t('modals.channelRename'));
             handleClose();
           } catch (error) {
