@@ -4,7 +4,7 @@
 [Ссылка на чат](https://frontend-project-12-production-80f6.up.railway.app/)
 
 ## Аналог чат-приложения Slack
-(упрощенная версия)
+Это упрощенное чат приложение в реальном времени, построенное на React/Redux, AJAX, REST API, Websockets.
 
 ### Установка:
 >  - make install
